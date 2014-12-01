@@ -33,6 +33,11 @@ body {
   background: #eee;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar { width: 0 !important }
 }
 
 // Local Imports

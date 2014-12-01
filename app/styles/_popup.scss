@@ -1,9 +1,13 @@
 .popup {
   width: 100%;
-  position: absolute;
+  position: fixed;
   background: #eee;
   top: 0; left: 0; right: 0;
-  padding-bottom: em(60);
+  bottom: em(60);
   z-index: 50;
-  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar { width: 0 !important }
 }

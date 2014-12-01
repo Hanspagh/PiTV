@@ -3,10 +3,10 @@
     <img class="poster" ng-src="http://image.tmdb.org/t/p/w500/{{ movie.backdrop }}">
     <div class="text">
       <h1 id="movieTitle">{{ movie.title }}</h1><br>
-      <br>
       <p id="movieDescription">
         {{ movie.description }}
       </p>
+      <br>
       <div class="buttons">
         <a ng-repeat="torrent in torrents">
           Play in {{ torrent.quality }} 

@@ -6,6 +6,8 @@ angular.module('pitvApp')
     $scope.items = DataService.movies;
 
     $scope.openMovie = function(movie) {
+      if ($rootScope.loading)
+        return;
       $rootScope.loading = true;
       var promise = DataService.loadMovieTorrents(movie.imdbid);
       promise.then(function(result) {
@@ -17,6 +19,7 @@ angular.module('pitvApp')
         $rootScope.loading = false;
       }, function(err) {
         console.log("Error: " + err);
+        $rootScope.loading = false;
       });
     };
 

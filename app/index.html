@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>PiTV Remote</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- build:css(.) styles/vendor.css -->
@@ -23,10 +23,12 @@
     <![endif]-->
     <!-- endbuild -->
 
-    <header class="ng-cloak" ng-include="'views/header.html'"></header>
-    <section class="ng-cloak" ng-include="'views/main.html'"></section>
+    <header class="ng-cloak" ng-include="'views/header.html'" ng-hide="openedPopup"></header>
+    <section class="ng-cloak" ng-include="'views/main.html'" ng-hide="openedPopup"></section>    
     <footer class="ng-cloak" ng-include="'views/footer.html'"></footer>
-    
+
+    <div class="popups"></div>
+
     <div class="ng-cloak loading" ng-show="loading"></div>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -46,9 +48,14 @@
     <script src="scripts/controllers/footer.js"></script>
     <script src="scripts/services/tabbingservice.js"></script>
     <script src="scripts/services/dataservice.js"></script>
+    <script src="scripts/services/ytsservice.js"></script>
     <script src="scripts/controllers/movies.js"></script>
     <script src="scripts/controllers/series.js"></script>
     <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/services/tmdbservice.js"></script>
+    <script src="scripts/filters/posterwidth.js"></script>
+    <script src="scripts/services/popupservice.js"></script>
+    <script src="scripts/plugins/jquery.js"></script>
     <!-- endbuild -->    
 </body>
 </html>

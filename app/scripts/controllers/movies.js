@@ -1,17 +1,23 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name piTvDevelopApp.controller:MoviesctrlCtrl
- * @description
- * # MoviesctrlCtrl
- * Controller of the piTvDevelopApp
- */
-angular.module('piTvDevelopApp')
-  .controller('MoviesctrlCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('pitvApp')
+  .controller('MoviesCtrl', function ($rootScope, $scope, DataService, PopupService) {
+
+    $scope.items = DataService.movies;
+
+    $scope.openMovie = function(movie) {
+      $rootScope.loading = true;
+      var promise = DataService.loadMovieTorrents(movie.imdbid);
+      promise.then(function(result) {
+        var scope = {
+          movie: movie,
+          torrents: result
+        };
+        PopupService.openMovie(scope);
+        $rootScope.loading = false;
+      }, function(err) {
+        console.log("Error: " + err);
+      });
+    };
+
   });

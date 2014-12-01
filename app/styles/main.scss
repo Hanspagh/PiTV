@@ -36,8 +36,11 @@ body {
 }
 
 // Local Imports
+@import "animate";
 @import "header";
 @import "footer";
 @import "loading";
 @import "tab";
 @import "cards";
+@import "popup";
+@import "details";

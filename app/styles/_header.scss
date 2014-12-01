@@ -37,6 +37,21 @@ header {
     left: em(20);
   }
 
+  .back-button {
+    position: absolute;
+    display: block;
+	  background-image: url(../img/back.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: em(40);
+    height: em(40);
+    min-width: em(40);
+    min-height: em(40);
+    top: em(13);
+    left: em(20);
+  }
+
   ul {
     @include transition(all .1s ease-in-out);
     list-style: none;

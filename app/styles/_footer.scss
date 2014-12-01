@@ -10,6 +10,7 @@ footer {
   border-top: em(3) solid rgba(0,0,0,0.1);
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   padding: 0 em(15);
+  z-index: 100;
 
   span {
     position: absolute;

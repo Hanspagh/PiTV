@@ -1,0 +1,61 @@
+ul.cards {
+  @include outer-container;
+  padding: em(20) 0 em(20) em(20);
+
+  li {
+    width: 25%;
+    float: left;
+    padding-right: em(20);
+    padding-bottom: em(20);
+
+    @include media($mobile) {
+      width: 100%;
+    }
+
+    .card {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: em(200);
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      background-size: cover;
+      background-position: 50% 0;
+
+      span {
+        font-family: 'Montserrat', $helvetica;
+        font-size: em(20);
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 100%;
+        background: rgba(192, 57, 43, 0.8);
+        color: #fff;
+        padding: em(5);
+      }
+    }
+  }
+
+  &.episodes {
+    li {
+      width: 100%;
+
+      .card {
+        height: auto;
+        background: #fff;
+        padding: em(30);
+
+        span {
+          background: none;
+          color: #231F20;
+          position: relative;
+          text-transform: none;
+        }
+      }
+    }
+  }
+}

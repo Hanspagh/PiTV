@@ -1,0 +1,15 @@
+<nav class="main" ng-controller="HeaderCtrl">
+  <a ng-click="toggleMenu()" class="menu-button">&nbsp;</a>
+  <div class="logo">&nbsp;</div>
+  <ul id="navigation" ng-show="menu">
+    <li>
+      <a ng-click="switchTab('movies')"><i class="fa fa-film fa-lg"></i> Movies</a>
+    </li>
+    <li>
+      <a ng-click="switchTab('series')"><i class="fa fa-coffee fa-lg"></i> Series</a>
+    </li>
+    <li>
+      <a ng-click="switchTab('settings')"><i class="fa fa-cogs fa-lg"></i> Settings</a>
+    </li>
+  </ul>
+</nav>

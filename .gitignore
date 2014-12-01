@@ -1,5 +1,5 @@
-.sass-cache/
-node_modules/
-store/
-subtitles/
-.DS_Store
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components

@@ -1,0 +1,5 @@
+<div class="main" ng-controller="MainCtrl">
+  <div id="movies" class="tab" ng-include="'views/tabs/movies.html'" ng-show="isActive('movies')"></div>
+  <div id="series" class="tab" ng-include="'views/tabs/series.html'" ng-show="isActive('series')"></div>
+  <div id="settings" class="tab" ng-include="'views/tabs/settings.html'" ng-show="isActive('settings')"></div>
+</div>

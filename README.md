@@ -32,11 +32,24 @@ Tasks to complete to get to the milestone 1.0.0.
 
 [Goto the PiTV website to learn more.](http://pitv.pw)
 
-## How to install?
+## How to contribute?
 
-Execute these commands on a fresh Raspbian installation:
+**Dependencies:**
 
-```
-wget http://pitv.pw/scripts/setup.sh
-sudo sh setup.sh
-```
+* ```npm install -g grunt-cli```
+* ```npm install -g bower```
+* ```npm install -g yo```
+* ```gem install sass compass```
+
+**Things to do after cloning:**
+
+* ```npm install --dev```
+* ```bower install```
+
+**How to start the frontend test server:**
+
+* ```grunt serve```
+
+## ~~How to install?~~
+
+The old instructions won't work. Especially because it's not finished...

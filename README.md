@@ -36,19 +36,30 @@ Tasks to complete to get to the milestone 1.0.0.
 
 **Dependencies:**
 
-* ```npm install -g grunt-cli```
+* ```npm install -g gulp```
 * ```npm install -g bower```
-* ```npm install -g yo```
-* ```gem install sass compass```
+* ```gem install sass```
 
 **Things to do after cloning:**
 
 * ```npm install --dev```
 * ```bower install```
 
+**How to compile & build the frontend and server.js:**
+
+* ```gulp build```
+
+**How to watch changes and compile again on change:**
+
+* ```gulp watch```
+
+**Default Task - Compile and then Watch**
+
+* ```gulp```
+
 **How to start the frontend test server:**
 
-* ```grunt serve```
+* ```node server.js```
 
 ## ~~How to install?~~
 

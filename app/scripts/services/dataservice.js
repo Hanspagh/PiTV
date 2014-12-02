@@ -53,6 +53,7 @@ angular.module('pitvApp')
         $rootScope.loading = false;
       }, function(err) {
         console.log(err);
+        $rootScope.loading = false;
       });
     };
 
@@ -75,6 +76,7 @@ angular.module('pitvApp')
         $rootScope.loading = false;
       }, function(err) {
         console.log(err);
+        $rootScope.loading = false;
       });
     };
  

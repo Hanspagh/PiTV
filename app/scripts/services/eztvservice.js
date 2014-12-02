@@ -5,7 +5,7 @@ angular.module('pitvApp')
     
     var _getSeries = function(page) {
       if (page < 1) page = 1;
-      var url = "https://api.popcorntime.io/shows/" + page;
+      var url = "http://api.popcorntime.io/shows/" + page;
       var defer = $q.defer();
       $http.get(url)
         .success(function(data, status, headers, config) {

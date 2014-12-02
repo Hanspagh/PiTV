@@ -1,25 +1,31 @@
 'use strict';
 
 angular.module('pitvApp')
-  .service('DataService', function($rootScope, $q, YtsService, TmdbService) {
+  .service('DataService', function($rootScope, $q, YtsService, TmdbService, EztvService) {
 
     var _movies = [];
     var _series = [];
+    
+    var moviesPages = 0;
+    var seriesPages = 0;
 
     var _clearMovies = function() {
       _movies = [];
+      moviesPages = 0;
     };
 
     var _clearSeries = function() {
       _series = [];
+      seriesPages = 0;
     };
 
     var _loadMovieTorrents = function(imdbid) {
       return YtsService.getTorrents(imdbid);
-    }
+    };
 
-    var _loadMovies = function(page) {
+    var _loadMovies = function() {
       $rootScope.loading = true;
+      var page = moviesPages++;
       var promise = YtsService.getMovies(page);
       promise.then(function(result) {
         var tmdbPromises = [];
@@ -50,8 +56,26 @@ angular.module('pitvApp')
       });
     };
 
-    var _loadSeries = function(page) {
-      
+    var _loadSeries = function() {
+      $rootScope.loading = true;
+      var page = seriesPages++;
+      var promise = EztvService.getSeries(page);
+      promise.then(function(result) {
+        result.forEach(function(serie) {
+          _series.push({
+            id: serie._id,
+            imdbid: serie.imdb_id,
+            title: serie.title,
+            numSeasons: serie.num_seasons,
+            year: serie.year,
+            backdrop: serie.images.fanart,
+            poster: serie.images.poster
+          });
+        });
+        $rootScope.loading = false;
+      }, function(err) {
+        console.log(err);
+      });
     };
  
     return {

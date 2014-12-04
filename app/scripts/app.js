@@ -3,7 +3,8 @@
 angular
   .module('pitvApp', [
     'ngAnimate',
-    'ngTouch'
+    'ngTouch',
+    'btford.socket-io'
   ])
     .run(function($rootScope) {
       $rootScope.retina = window.devicePixelRatio > 1;

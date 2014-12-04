@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .service('YtsService', function ($http, $q) {
+  .service('YtsService', function ($http, $q, bridge) {
 
     var _getTorrents = function(imdbid) {
       var url = "https://yts.re/api/listimdb.json?imdb_id=" + imdbid;
@@ -30,25 +30,21 @@ angular.module('pitvApp')
         });
       return defer.promise;
     };
-    
+
     var _getMovies = function(page) {
-      var url = "https://yts.re/api/list.json?sort=seeds&quality=720p&set=" + page;
+      if (page < 1) page = 1;
       var defer = $q.defer();
-      $http.get(url)
-        .success(function(data, status, headers, config) {
-          if (status === 200) {
-            if (data.error == null && data.MovieCount != null && data.MovieList != null && data.MovieList.length > 0) {
-              defer.resolve(data.MovieList);
-            } else {
-              defer.reject("Error: " + data.error);
-            }
+      bridge.emit('getMovies', page, function(data) {
+        if (data.error) {
+          defer.reject("Error Status " + data.error);
+        } else {
+          if (data.result.MovieCount != null && data.result.MovieList != null && data.result.MovieList.length > 0) {
+            defer.resolve(data.result.MovieList);
           } else {
-            defer.reject("Error Status " + status);
+            defer.reject("Error Status Faulty Data");
           }
-        })
-        .error(function(data, status, headers, config) {
-          defer.reject("Error Status " + status);
-        });
+        }
+      });
       return defer.promise;
     };
 

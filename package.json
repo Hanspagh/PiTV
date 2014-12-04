@@ -5,6 +5,7 @@
   "homepage": "http://pitv.pw",
   "dependencies": {
     "connect": "^3.3.3",
+    "request": "^2.49.0",
     "serve-static": "^1.7.1",
     "socket.io": "^1.2.1"
   },

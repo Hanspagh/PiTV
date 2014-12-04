@@ -4,30 +4,25 @@ angular.module('pitvApp')
   .service('YtsService', function ($http, $q, bridge) {
 
     var _getTorrents = function(imdbid) {
-      var url = "https://yts.re/api/listimdb.json?imdb_id=" + imdbid;
       var defer = $q.defer();
-      $http.get(url)
-        .success(function(data, status, headers, config) {
-          if (status === 200) {
-            if (data.error == null && data.MovieCount != null && data.MovieList != null) {
-              var torrents = [];
-              data.MovieList.forEach(function(e) {
-                torrents.push({
-                  quality: e.Quality,
-                  magnet: e.TorrentMagnetUrl
-                });
+      bridge.emit('getMovieTorrents', imdbid, function(data) {
+        if (data.error) {
+          defer.reject("Error Status " + data.error);
+        } else {
+          if (data.result.MovieCount != null && data.result.MovieList != null) {
+            var torrents = [];
+            data.result.MovieList.forEach(function(e) {
+              torrents.push({
+                quality: e.Quality,
+                magnet: e.TorrentMagnetUrl
               });
-              defer.resolve(torrents);
-            } else {
-              defer.reject("Error: " + data.error);
-            }
+            });
+            defer.resolve(torrents);
           } else {
-            defer.reject("Error Status " + status);
+            defer.reject("Error Status Faulty Data");
           }
-        })
-        .error(function(data, status, headers, config) {
-          defer.reject("Error Status " + status);
-        });
+        }
+      });
       return defer.promise;
     };
 

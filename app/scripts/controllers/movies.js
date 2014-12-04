@@ -5,17 +5,13 @@ angular.module('pitvApp')
 
     $scope.items = DataService.movies;
 
-    $scope.openMovie = function(movie) {
+    $scope.openMovie = function(index) {
       if ($rootScope.loading)
         return;
       $rootScope.loading = true;
-      var promise = DataService.loadMovieTorrents(movie.imdbid);
-      promise.then(function(result) {
-        var scope = {
-          movie: movie,
-          torrents: result
-        };
-        PopupService.openMovie(scope);
+      var promise = DataService.loadMovie(index);
+      promise.then(function(movie) {
+        PopupService.openMovie(movie);
         $rootScope.loading = false;
       }, function(err) {
         console.log("Error: " + err);

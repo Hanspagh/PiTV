@@ -15,11 +15,11 @@ Tasks to complete to get to the milestone 1.0.0.
 - [x] YtsService
 - [ ] YtsService Search
 - [x] TmdbService
-- [ ] EztvService
+- [x] EztvService
 - [ ] EztvService Search
 - [x] PopupService
 - [x] MovieDetails via PopupService
-- [ ] SeriesDetails via PopupService
+- [x] SeriesDetails via PopupService
 - [ ] SeriesEpisodesOfSeason via PopupService
 - [ ] EpisodeDetails via PopupService
 - [ ] PlaybackService linked with FooterController

@@ -9,6 +9,23 @@ angular.module('pitvApp')
       var defer = _create(scope, 'views/popups/movie.html');
       return defer.promise;
     };
+
+    var _openSerie = function(scope) {
+
+      scope.getSeasonNumbers = function() {
+        var seasonNos = [];
+        for (var season in scope.seasons) {
+          if (scope.seasons.hasOwnProperty(season)) {
+            seasonNos.push(season);
+          }
+        }
+        seasonNos.sort();
+        return seasonNos;
+      }
+
+      var defer = _create(scope, 'views/popups/serie.html');
+      return defer.promise;
+    };
  
     var _create = function(templateScope, templateLink) {
       var defer = $q.defer();
@@ -61,6 +78,7 @@ angular.module('pitvApp')
     };
 
     return {
-      openMovie: _openMovie
+      openMovie: _openMovie,
+      openSerie: _openSerie
     };
   });

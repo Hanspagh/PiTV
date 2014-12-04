@@ -1,7 +1,7 @@
 <div ng-controller="MoviesCtrl">
   <ul class="cards">
     <li ng-repeat="movie in items" class="reveal">
-      <div class="card" ng-click="openMovie({{ movie }})" ng-style="{'background-image':'url({{ retina | posterWidth }}{{ movie.backdrop }})'}">
+      <div class="card" ng-click="openMovie({{ $index }})" ng-style="{'background-image':'url({{ retina | posterWidth }}{{ movie.backdrop }})'}">
         <span>{{ movie.title }}</span>
       </div>
     </li>

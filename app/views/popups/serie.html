@@ -1,0 +1,17 @@
+<div class="details">
+  <div class="media">
+    <img class="poster" ng-src="{{ serie.backdrop }}">
+    <div class="text">
+      <h1>{{ serie.title | removeYear }}</h1><br>
+      <p>
+        {{ serie.synopsis }}
+      </p>
+      <br>
+      <div class="buttons">
+        <a ng-repeat="no in getSeasonNumbers()">
+          Season {{ no }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

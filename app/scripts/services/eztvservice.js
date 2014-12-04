@@ -16,7 +16,45 @@ angular.module('pitvApp')
       return defer.promise;
     };
 
+    var _getSerie = function(imdbid) {
+      var defer = $q.defer();
+      bridge.emit('getSerie', imdbid, function(data) {
+        if (data.error) {
+          defer.reject("Error Status " + data.error);
+        } else {
+          var seasons = {};
+
+          data.result.episodes.forEach(function(e) {
+            if (!seasons[e.season] || seasons[e.season] == null) {
+              seasons[e.season] = {};
+            }
+
+            seasons[e.season][e.episode] = {
+              title: e.title,
+              overview: e.overview,
+              firstAired: e.first_aired,
+              torrents: e.torrents
+            };
+          });
+
+          var result = {
+            extend: {
+              synopsis: data.result.synopsis,
+              rating: data.result.rating,
+              runtime: data.result.runtime,
+              status: data.result.status
+            },
+            seasons: seasons
+          };
+
+          defer.resolve(result);
+        }
+      });
+      return defer.promise;
+    };
+
     return {
-      getSeries: _getSeries
+      getSeries: _getSeries,
+      getSerie: _getSerie
     };
   });

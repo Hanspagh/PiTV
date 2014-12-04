@@ -1,8 +1,8 @@
 <div ng-controller="SeriesCtrl">
   <ul class="cards">
     <li ng-repeat="serie in items" class="reveal">
-      <div class="card" ng-click="openSerie({{ serie }})" ng-style="{'background-image':'url({{ serie.backdrop }})'}">
-        <span>{{ serie.title }}</span>
+      <div class="card" ng-click="openSerie({{ $index }})" ng-style="{'background-image':'url({{ serie.backdrop }})'}">
+        <span>{{ serie.title | removeYear }}</span>
       </div>
     </li>
   </ul>

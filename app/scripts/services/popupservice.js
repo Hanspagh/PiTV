@@ -19,7 +19,9 @@ angular.module('pitvApp')
             seasonNos.push(season);
           }
         }
-        seasonNos.sort();
+        seasonNos.sort(function (a, b) {
+          return (a - b);
+        });
         return seasonNos;
       }
 

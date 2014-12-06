@@ -16,20 +16,6 @@ angular.module('pitvApp')
     };
 
     var _openSerie = function(scope) {
-
-      scope.getSeasonNumbers = function() {
-        var seasonNos = [];
-        for (var season in scope.seasons) {
-          if (scope.seasons.hasOwnProperty(season)) {
-            seasonNos.push(season);
-          }
-        }
-        seasonNos.sort(function (a, b) {
-          return (a - b);
-        });
-        return seasonNos;
-      }
-
       var defer = _create(scope, 'views/popups/serie.html');
       return defer.promise;
     };

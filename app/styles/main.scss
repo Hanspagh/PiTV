@@ -40,6 +40,18 @@ body {
   &::-webkit-scrollbar { width: 0 !important }
 }
 
+.container {
+  width: 100%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  bottom: em(60);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar { width: 0 !important }  
+}
+
 // Local Imports
 @import "animate";
 @import "header";

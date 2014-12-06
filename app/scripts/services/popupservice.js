@@ -47,6 +47,7 @@ angular.module('pitvApp')
         if (popupScopes.length > 0) {
           afterElement = angular.element($('.popups .popup').last());
         }
+
         $animate.enter(element, container, afterElement).then(function() {
           $rootScope.openedPopup = true;
           $rootScope.$digest();

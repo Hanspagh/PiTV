@@ -2,8 +2,13 @@
 
 angular.module('pitvApp')
   .service('PopupService', function ($rootScope, $q, $compile, $animate) {
-    var container = angular.element(document.querySelector('.popups'));
+    var container = angular.element($('.popups'));
     var popupScopes = [];
+
+    var _openSeason = function(scope) {
+      var defer = _create(scope, 'views/popups/season.html');
+      return defer.promie;
+    }
 
     var _openMovie = function(scope) {
       var defer = _create(scope, 'views/popups/movie.html');
@@ -38,8 +43,11 @@ angular.module('pitvApp')
       template.append('<div ng-include="\'' + templateLink + '\'" class="content"></div>');
       angular.extend(scope, templateScope);
       var element = $compile(template)(scope, function(element, scope) {
-        var promise = $animate.enter(element, container, null);
-        promise.then(function() {
+        var afterElement = null;
+        if (popupScopes.length > 0) {
+          afterElement = angular.element($('.popups .popup').last());
+        }
+        $animate.enter(element, container, afterElement).then(function() {
           $rootScope.openedPopup = true;
           $rootScope.$digest();
 
@@ -64,9 +72,9 @@ angular.module('pitvApp')
 
         if (popupScopes.length > 0) {
           for (var i = 0; i < popupScopes.length - 1; i++) {
-            popupScope[i].inBackground = true;
+            popupScopes[i].inBackground = true;
           }
-          popupScope[popupScope.length - 1].inBackground = false;
+          popupScopes[popupScopes.length - 1].inBackground = false;
         }
 
         var promise = $animate.leave(element);
@@ -81,6 +89,7 @@ angular.module('pitvApp')
 
     return {
       openMovie: _openMovie,
-      openSerie: _openSerie
+      openSerie: _openSerie,
+      openSeason: _openSeason
     };
   });

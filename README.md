@@ -20,8 +20,8 @@ Tasks to complete to get to the milestone 1.0.0.
 - [x] PopupService
 - [x] MovieDetails via PopupService
 - [x] SeriesDetails via PopupService
-- [ ] SeriesEpisodesOfSeason via PopupService
-- [ ] EpisodeDetails via PopupService
+- [x] SeriesEpisodesOfSeason via PopupService
+- [x] EpisodeDetails via PopupService
 - [ ] PlaybackService linked with FooterController
 - [ ] PlaybackService & Socket.io
 - [ ] Socket.io Server Rewrite

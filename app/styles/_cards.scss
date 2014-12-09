@@ -1,11 +1,10 @@
 ul.cards {
   @include outer-container;
-  padding: em(20) 0 em(20) em(20);
+  padding: em(20);
 
   li {
     width: 25%;
     float: left;
-    padding-right: em(20);
     padding-bottom: em(20);
 
     @include media($mobile) {

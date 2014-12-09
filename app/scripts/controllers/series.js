@@ -8,14 +8,14 @@ angular.module('pitvApp')
     $scope.openSerie = function(index) {
       if ($rootScope.loading)
         return;
-      $rootScope.loading = true;
+      $rootScope.setLoading(true);
       var promise = DataService.loadSerie(index);
       promise.then(function(serie) {
         PopupService.openSerie(serie);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false); 
       }, function(err) {
         console.log("Error: " + err);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false); 
       });
     };
 

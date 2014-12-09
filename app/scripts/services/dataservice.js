@@ -61,9 +61,12 @@ angular.module('pitvApp')
     };
 
     var _loadMovies = function() {
-      $rootScope.loading = true;
+      $rootScope.setLoading(true);
+
       var page = moviesPages++;
       var promise = YtsService.getMovies(page);
+      var defer = $q.defer();
+
       promise.then(function(result) {
         var tmdbPromises = [];
         result.forEach(function(movie) {
@@ -87,17 +90,24 @@ angular.module('pitvApp')
             console.log("While fetching movie " + movie.ImdbCode + ": " + err);
           });
         });
-        $rootScope.loading = false;
+        $rootScope.setLoading(false);
+        defer.resolve();
       }, function(err) {
         console.log(err);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false);
+        defer.reject();
       });
+
+      return defer.promise;
     };
 
     var _loadSeries = function() {
-      $rootScope.loading = true;
+      $rootScope.setLoading(true);
+
       var page = seriesPages++;
       var promise = EztvService.getSeries(page);
+      var defer = $q.defer();
+
       promise.then(function(result) {
         result.forEach(function(serie) {
           _series.push({
@@ -110,11 +120,15 @@ angular.module('pitvApp')
             poster: serie.images.poster
           });
         });
-        $rootScope.loading = false;
+        $rootScope.setLoading(false);
+        defer.resolve();
       }, function(err) {
         console.log(err);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false);
+        defer.resolve();
       });
+
+      return defer.promise;
     };
  
     return {

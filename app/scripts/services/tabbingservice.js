@@ -7,6 +7,26 @@ angular.module('pitvApp')
     var _isActive = function(name) {
       return (name === _active);
     };
+    
+    var _loadMoreLock = false;
+    var _loadMore = function() {
+      if (_loadMoreLock) return;
+      _loadMoreLock = true;
+
+      var promise;      
+      switch(_active) {
+        case 'series':
+          promise = DataService.loadSeries();
+          break;
+        case 'movies':
+          promise = DataService.loadMovies();
+          break;
+      } 
+
+      promise.finally(function() {
+        _loadMoreLock = false;
+      });
+    };
 
     var _switchTab = function(name) {
       switch(name) {
@@ -31,6 +51,7 @@ angular.module('pitvApp')
     return {
       isActive: _isActive,
       switchTab: _switchTab,
+      loadMore: _loadMore,
       active: _active
     };
 

@@ -8,14 +8,14 @@ angular.module('pitvApp')
     $scope.openMovie = function(index) {
       if ($rootScope.loading)
         return;
-      $rootScope.loading = true;
+      $rootScope.setLoading(true); 
       var promise = DataService.loadMovie(index);
       promise.then(function(movie) {
         PopupService.openMovie(movie);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false);
       }, function(err) {
         console.log("Error: " + err);
-        $rootScope.loading = false;
+        $rootScope.setLoading(false); 
       });
     };
 

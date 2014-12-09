@@ -6,6 +6,12 @@ angular
     'ngTouch',
     'btford.socket-io'
   ])
-    .run(function($rootScope) {
+    .run(function($rootScope, $timeout) {
       $rootScope.retina = window.devicePixelRatio > 1;
+
+      $rootScope.setLoading = function(input) {
+        $timeout(function() {
+          $rootScope.loading = input;
+        }, 0);
+      };
     });

@@ -1,6 +1,7 @@
 <ul class="cards titles" ng-controller="SeasonCtrl">
   <li ng-repeat="episode in getEpisodes()">
     <div class="card" ng-click="openEpisode({{ episode.index }})">
+      <small>{{ episode.label }}</small>
       <span>
         {{ episode.title }}
       </span>

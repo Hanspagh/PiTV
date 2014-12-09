@@ -3,6 +3,12 @@
 angular.module('pitvApp')
   .service('EztvService', function ($http, $q, bridge) {
 
+    var _pad = function(num, size) {
+      var s = num + "";
+      while (s.length < size) s = "0" + s;
+      return s;
+    }
+
     var _getSeries = function(page) {
       if (page < 1) page = 1;
       var defer = $q.defer();
@@ -30,6 +36,7 @@ angular.module('pitvApp')
             }
 
             seasons[e.season][e.episode] = {
+              label: 'S' + _pad(e.season, 2) + 'E' + _pad(e.episode, 2),
               title: e.title,
               overview: e.overview,
               firstAired: e.first_aired,

@@ -8,6 +8,7 @@ angular.module('pitvApp')
       var temp = $scope.episodes[key];
       var episode = {
         index: key,
+        label: temp.label,
         title: temp.title
       };
       _episodes.push(episode);

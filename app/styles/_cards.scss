@@ -23,6 +23,15 @@ ul.cards {
       background-size: cover;
       background-position: 50% 0;
 
+      small {
+        font-family: 'Montserrat', $helvetica;
+        font-size: em(11);
+        text-transform: uppercase;
+        width: 100%;
+        min-width: 100%;
+        display: inline-block;
+      }
+
       span {
         font-family: 'Montserrat', $helvetica;
         font-size: em(20);

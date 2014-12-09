@@ -22,6 +22,7 @@
   left: 50%;
   margin-left: em(-50);
   z-index: 500;
+  pointer-events: none;
 
   @include animation(rotateplane 2.4s infinite ease-in-out);
 }

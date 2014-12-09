@@ -1,0 +1,16 @@
+<div class="details">
+  <div class="media">
+    <div class="text">
+      <h1>{{ title }}</h1><br>
+      <p>
+        {{ overview }}
+      </p>
+      <br>
+      <div class="buttons">
+        <a ng-repeat="torrent in torrents">
+          Play in {{ torrent.quality }} 
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

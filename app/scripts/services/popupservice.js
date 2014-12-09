@@ -7,8 +7,13 @@ angular.module('pitvApp')
 
     var _openSeason = function(scope) {
       var defer = _create(scope, 'views/popups/season.html');
-      return defer.promie;
-    }
+      return defer.promise;
+    };
+
+    var _openEpisode = function(scope) {
+      var defer = _create(scope, 'views/popups/episode.html');
+      return defer.promise;
+    };
 
     var _openMovie = function(scope) {
       var defer = _create(scope, 'views/popups/movie.html');
@@ -77,6 +82,7 @@ angular.module('pitvApp')
     return {
       openMovie: _openMovie,
       openSerie: _openSerie,
-      openSeason: _openSeason
+      openSeason: _openSeason,
+      openEpisode: _openEpisode
     };
   });

@@ -3,17 +3,18 @@
 angular.module('pitvApp')
   .controller('SerieCtrl', function ($scope, DataService, PopupService) {
 
-    $scope.getSeasonNumbers = function() {
-      var seasonNos = [];
-      for (var season in $scope.seasons) {
-        if ($scope.seasons.hasOwnProperty(season)) {
-          seasonNos.push(season);
-        }
+    var _seasonNos = [];
+    for (var season in $scope.seasons) {
+      if ($scope.seasons.hasOwnProperty(season)) {
+        _seasonNos.push(season);
       }
-      seasonNos.sort(function (a, b) {
-        return (a - b);
-      });
-      return seasonNos;
+    }
+    _seasonNos.sort(function (a, b) {
+      return (a - b);
+    });
+
+    $scope.getSeasonNumbers = function() {
+      return _seasonNos;
     };
 
     $scope.openSeason = function(number) {

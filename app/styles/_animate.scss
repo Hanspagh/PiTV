@@ -10,11 +10,11 @@
 }
 
 .reveal.ng-leave {
+  @include transition(.5s linear all);
   opacity: 1;
 }
 
 .reveal.ng-leave.ng-leave-active {
-  @include transition(.5s linear all);
   opacity: 0;
 }
 

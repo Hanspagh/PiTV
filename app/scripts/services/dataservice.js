@@ -63,8 +63,7 @@ angular.module('pitvApp')
     var _loadMovies = function() {
       $rootScope.setLoading(true);
 
-      moviesPages++;
-      var promise = YtsService.getMovies(moviesPages);
+      var promise = YtsService.getMovies(moviesPages + 1);
       var defer = $q.defer();
 
       promise.then(function(result) {
@@ -92,6 +91,7 @@ angular.module('pitvApp')
           });
         });
         $rootScope.setLoading(false);
+        moviesPages++;        
         defer.resolve();
       }, function(err) {
         console.log(JSON.stringify(err));
@@ -106,8 +106,7 @@ angular.module('pitvApp')
     var _loadSeries = function() {
       $rootScope.setLoading(true);
 
-      seriesPages++;
-      var promise = EztvService.getSeries(seriesPages);
+      var promise = EztvService.getSeries(seriesPages + 1);
       var defer = $q.defer();
 
       promise.then(function(result) {
@@ -123,6 +122,7 @@ angular.module('pitvApp')
           });
         });
         $rootScope.setLoading(false);
+        seriesPages++;        
         defer.resolve();
       }, function(err) {
         console.log(JSON.stringify(err));

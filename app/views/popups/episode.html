@@ -1,4 +1,4 @@
-<div class="details">
+<div class="details" ng-controller="EpisodeCtrl">
   <div class="media">
     <div class="text">
       <h1>{{ title }}</h1><br>
@@ -7,7 +7,7 @@
       </p>
       <br>
       <div class="buttons">
-        <a ng-repeat="torrent in torrents">
+        <a ng-repeat="torrent in torrents" ng-click="playTorrent({{ $index }})">
           Play in {{ torrent.quality }} 
         </a>
       </div>

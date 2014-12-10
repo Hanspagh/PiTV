@@ -1,18 +1,18 @@
 <div ng-controller="FooterCtrl">
-    <a>
+    <a ng-click="backward()">
       <i class="fa fa-backward fa-lg"></i>
     </a>
-    <a ng-hide="playing">
+    <a ng-click="play()" ng-hide="playing">
       <i class="fa fa-play fa-lg"></i>
     </a>
-    <a ng-show="playing">
+    <a ng-click="pause()" ng-show="playing">
       <i class="fa fa-pause fa-lg"></i>
     </a>
-    <a>
+    <a ng-click="stop()">
       <i class="fa fa-stop fa-lg"></i>
     </a>
-    <a>
+    <a ng-click="forward()">
       <i class="fa fa-forward fa-lg"></i>
     </a>
-    <span id="media-title"></span>
+    <span id="media-title">{{ label }}</span>
 </div>

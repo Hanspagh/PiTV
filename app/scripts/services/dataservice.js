@@ -63,8 +63,8 @@ angular.module('pitvApp')
     var _loadMovies = function() {
       $rootScope.setLoading(true);
 
-      var page = moviesPages++;
-      var promise = YtsService.getMovies(page);
+      moviesPages++;
+      var promise = YtsService.getMovies(moviesPages);
       var defer = $q.defer();
 
       promise.then(function(result) {
@@ -106,8 +106,8 @@ angular.module('pitvApp')
     var _loadSeries = function() {
       $rootScope.setLoading(true);
 
-      var page = seriesPages++;
-      var promise = EztvService.getSeries(page);
+      seriesPages++;
+      var promise = EztvService.getSeries(seriesPages);
       var defer = $q.defer();
 
       promise.then(function(result) {

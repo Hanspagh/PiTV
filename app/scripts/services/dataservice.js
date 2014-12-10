@@ -88,14 +88,14 @@ angular.module('pitvApp')
             });
           }, function(err) {
             console.log(JSON.stringify(err));
-            AlertService.error("Couldn't fetch the movie details from the Movie DB. " + err.msg);
+            AlertService.error("Couldn't fetch the movie details from the Movie DB. " + err.message);
           });
         });
         $rootScope.setLoading(false);
         defer.resolve();
       }, function(err) {
         console.log(JSON.stringify(err));
-        AlertService.error("Couldn't fetch the movies feed from yts.re. " + err.msg);
+        AlertService.error("Couldn't fetch the movies feed from yts.re. " + err.message);
         $rootScope.setLoading(false);
         defer.reject();
       });
@@ -126,7 +126,7 @@ angular.module('pitvApp')
         defer.resolve();
       }, function(err) {
         console.log(JSON.stringify(err));
-        AlertService.error("Couldn't fetch the series feed from popcorntime.io. " + err.msg);
+        AlertService.error("Couldn't fetch the series feed from popcorntime.io. " + err.message);
         $rootScope.setLoading(false);
         defer.resolve();
       });

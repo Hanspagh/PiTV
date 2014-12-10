@@ -14,7 +14,7 @@ angular.module('pitvApp')
         PopupService.openMovie(movie);
         $rootScope.setLoading(false);
       }, function(err) {
-        AlertService.error("Couldn't fetch the movie from the yts.re service. " + err.msg);
+        AlertService.error("Couldn't fetch the movie from the yts.re service. " + err.message);
         console.log(JSON.stringify(err));
         $rootScope.setLoading(false); 
       });

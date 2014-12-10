@@ -14,7 +14,7 @@ angular.module('pitvApp')
         PopupService.openSerie(serie);
         $rootScope.setLoading(false); 
       }, function(err) {
-        AlertService.error("Couldn't fetch the serie from the popcorntime.io service. " + err.msg);
+        AlertService.error("Couldn't fetch the serie from the popcorntime.io service. " + err.message);
         console.log(JSON.stringify(err));
         $rootScope.setLoading(false); 
       });

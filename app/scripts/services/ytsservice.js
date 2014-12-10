@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .service('YtsService', function ($http, $q, bridge) {
+  .service('YtsService', function ($q, bridge) {
 
     var _getTorrents = function(imdbid) {
       var defer = $q.defer();

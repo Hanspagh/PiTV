@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .service('EztvService', function ($http, $q, bridge) {
+  .service('EztvService', function ($q, bridge) {
 
     var _pad = function(num, size) {
       var s = num + "";

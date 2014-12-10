@@ -38,6 +38,12 @@
       p {
         @include user-select(text);
         text-align: justify;
+        margin-bottom: em(40);
+      }
+
+      .stars {
+        margin-bottom: em(25);
+        color: #c0392b;
       }
 
       .buttons {

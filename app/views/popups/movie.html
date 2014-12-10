@@ -2,11 +2,11 @@
   <div class="media">
     <img class="poster" ng-src="http://image.tmdb.org/t/p/w500/{{ movie.backdrop }}">
     <div class="text">
-      <h1>{{ movie.title }}</h1><br>
+      <h1>{{ movie.title }}</h1>
+      <div class="stars"></div>
       <p>
         {{ movie.description }}
       </p>
-      <br>
       <div class="buttons">
         <a ng-repeat="torrent in torrents" ng-click="playTorrent({{ $index }})">
           Play in {{ torrent.quality }} 

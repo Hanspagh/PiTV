@@ -14,4 +14,10 @@ angular
           $rootScope.loading = input;
         }, 0);
       };
+
+      $rootScope.setAlert = function(input) {
+        $timeout(function() {
+          $rootScope.alert = input;
+        }, 0);
+      };
     });

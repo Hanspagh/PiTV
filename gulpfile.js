@@ -59,6 +59,11 @@ gulp.task('watch', function () {
     console.log('SASS File at ' + event.path + ' was ' + event.type + ', running tasks...');
   });
 
+  var html = gulp.watch('./app/views/**/*.html', [ 'copy' ]);
+  html.on('change', function(event) {
+    console.log('HTML File at ' + event.path + ' was ' + event.type + ', running tasks...');
+  });
+
   gulp.watch('./app/scripts/**/*.js', function(event) {
     console.log('Javascript File ' + event.path + ' was ' + event.type + ', recopying js-Files...');
     

@@ -24,8 +24,8 @@
     <footer class="ng-cloak" ng-include="'views/footer.html'"></footer>
 
     <div class="popups"></div>
-
-    <div class="ng-cloak loading" ng-show="loading"></div>
+    <div class="loading ng-cloak" ng-show="loading"></div>
+    <div class="alerts ng-cloak" ng-show="alert"></div>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -60,6 +60,7 @@
     <script src="scripts/services/eztvservice.js"></script>
     <script src="scripts/services/tmdbservice.js"></script>
     <script src="scripts/services/popupservice.js"></script>
+    <script src="scripts/services/alertservice.js"></script>
     <script src="scripts/services/bridge.js"></script>
 
     <!-- Filter -->

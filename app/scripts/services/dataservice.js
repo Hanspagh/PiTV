@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .service('DataService', function($rootScope, $q, YtsService, TmdbService, EztvService) {
+  .service('DataService', function($rootScope, $q, YtsService, TmdbService, EztvService, AlertService) {
 
     var _movies = [];
     var _series = [];
@@ -87,13 +87,15 @@ angular.module('pitvApp')
               runtime: result.runtime
             });
           }, function(err) {
-            console.log("While fetching movie " + movie.ImdbCode + ": " + err);
+            console.log(JSON.stringify(err));
+            AlertService.error("Couldn't fetch the movie details from the Movie DB. " + err.msg);
           });
         });
         $rootScope.setLoading(false);
         defer.resolve();
       }, function(err) {
-        console.log(err);
+        console.log(JSON.stringify(err));
+        AlertService.error("Couldn't fetch the movies feed from yts.re. " + err.msg);
         $rootScope.setLoading(false);
         defer.reject();
       });
@@ -123,7 +125,8 @@ angular.module('pitvApp')
         $rootScope.setLoading(false);
         defer.resolve();
       }, function(err) {
-        console.log(err);
+        console.log(JSON.stringify(err));
+        AlertService.error("Couldn't fetch the series feed from popcorntime.io. " + err.msg);
         $rootScope.setLoading(false);
         defer.resolve();
       });

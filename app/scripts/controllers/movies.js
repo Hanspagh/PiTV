@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .controller('MoviesCtrl', function ($rootScope, $scope, DataService, PopupService) {
+  .controller('MoviesCtrl', function ($rootScope, $scope, DataService, PopupService, AlertService) {
 
     $scope.items = DataService.movies;
 
@@ -14,7 +14,8 @@ angular.module('pitvApp')
         PopupService.openMovie(movie);
         $rootScope.setLoading(false);
       }, function(err) {
-        console.log("Error: " + err);
+        AlertService.error("Couldn't fetch the movie from the yts.re service. " + err.msg);
+        console.log(JSON.stringify(err));
         $rootScope.setLoading(false); 
       });
     };

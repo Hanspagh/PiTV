@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pitvApp')
-  .controller('SeriesCtrl', function ($rootScope, $scope, DataService, PopupService) {
+  .controller('SeriesCtrl', function ($rootScope, $scope, DataService, PopupService, AlertService) {
 
     $scope.items = DataService.series;
 
@@ -14,7 +14,8 @@ angular.module('pitvApp')
         PopupService.openSerie(serie);
         $rootScope.setLoading(false); 
       }, function(err) {
-        console.log("Error: " + err);
+        AlertService.error("Couldn't fetch the serie from the popcorntime.io service. " + err.msg);
+        console.log(JSON.stringify(err));
         $rootScope.setLoading(false); 
       });
     };

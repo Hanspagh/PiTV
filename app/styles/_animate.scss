@@ -1,12 +1,21 @@
 // Fade In / Reveal Effect
-.reveal.ng-enter, .reveal.ng-move  {
-  @include transition(0.5s linear all);
+.reveal.ng-enter, .reveal.ng-move {
+  @include transition(.5s linear all);
   opacity: 0;
 }
 
 .reveal.ng-enter.ng-enter-active,
-.reveal.ng-move.ng-move-active{
+.reveal.ng-move.ng-move-active {
   opacity: 1;
+}
+
+.reveal.ng-leave {
+  opacity: 1;
+}
+
+.reveal.ng-leave.ng-leave-active {
+  @include transition(.5s linear all);
+  opacity: 0;
 }
 
 // Slide In Effect
@@ -20,7 +29,7 @@
   @include transform(translateX(0%));
 }
 
-.slidein.ng-leave  {
+.slidein.ng-leave {
   @include transition(.3s ease-in-out all);
   @include transform(translateX(0%));
 }

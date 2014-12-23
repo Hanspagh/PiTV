@@ -66,7 +66,7 @@ gulp.task('watch', function () {
 
   gulp.watch('./app/scripts/**/*.js', function(event) {
     console.log('Javascript File ' + event.path + ' was ' + event.type + ', recopying js-Files...');
-    
+
     gulp.src('./app/scripts/**/*.js', {
       base: './app/scripts'
     })
@@ -83,7 +83,7 @@ gulp.task('watch', function () {
 gulp.task('coffee', function() {
   gulp.src('./server/*.coffee')
     .pipe(coffee({bare: true}))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('build', [

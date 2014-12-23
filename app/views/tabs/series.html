@@ -1,4 +1,9 @@
 <div ng-controller="SeriesCtrl">
+  <form novalidate class="search">
+    <input type="text" ng-model="search.arg" placeholder="Filter the series...">
+    <button type="submit" ng-click="filter(search)" tabindex="2">Go</button>
+  </form>
+
   <ul class="cards">
     <li ng-repeat="serie in items" class="reveal">
       <div class="card" ng-click="openSerie({{ $index }})" ng-style="{'background-image':'url({{ serie.backdrop }})'}">

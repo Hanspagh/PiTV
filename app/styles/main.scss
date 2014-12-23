@@ -49,7 +49,7 @@ body {
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
 
-  &::-webkit-scrollbar { width: 0 !important }  
+  &::-webkit-scrollbar { width: 0 !important }
 }
 
 // Local Imports
@@ -62,3 +62,4 @@ body {
 @import "popup";
 @import "details";
 @import "alert";
+@import "search";

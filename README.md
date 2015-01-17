@@ -8,6 +8,8 @@ On a running PiTV you can open a remote in your browser by navigating to your Pi
 
 [Goto the PiTV website to learn more.](http://pitv.pw)
 
+Screenshots: http://imgur.com/a/k23wA
+
 ## How to install?
 
 Execute these commands on a fresh Raspbian installation:
